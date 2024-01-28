@@ -16,7 +16,7 @@ function main() {
   const controller = new GithubController();
 
   app.use( express.json() );
-
+  //!usando el middleware en un use antes de las rutas va aplicar a todas las rutas
   app.use( GithubSha256Middleware.verifySignature );
 
   app.post('/api/github', controller.webhookHandler );
